@@ -10,7 +10,6 @@ class countingItUp {
 
         f.write("Numerator, Denominator, Average Time, Output\n");
         runTests(f);
-        System.out.println(solve(11, 2));
 
     }
 
