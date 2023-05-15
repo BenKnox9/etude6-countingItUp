@@ -1,92 +1,49 @@
-# etude6-CountingItUp
+# Authors
+
+Daniel Bohinc, Ben Knox
+
+# Counting It Up
+
+
+# Description & Overview
+CountingItUpV4 is a java program which uses 64 bit integers to perform combinations. 
+The max value for a 64 bit integer being, 9,223,372,036,854,775,807. As you can see by the names of the files,
+CountingItUpV4 was our fourth attempt which successfully calculated combinations where the final result would go as 
+high as 9,223,372,036,854,775,807. We had multiple other attempts which ran into problems regarding the bit limit  
+as well as rounding errors. One attempt could calculate combinations in 5 lines of code however using the data type double meant that
+for the extremely large numbers the rounding errors would have caught up and our result was off. 
+
+CountingItUpV4 looked at the greatest common denominator between the current result and the list of numbers of K to 0. The program would divide the result by the gcd and then multiply by the next number in the list n to n - k.
+This worked well because in previous implementations we found that our end result would be a fraction and the numerator would exceed the 64 bits that a long holds. 
+However if we were able to perform the division for this fraction we could have achieved the correct result. After this we focused on completing any potential divisions as early as possible so that the number would not exceed the bit count too early on. 
 
 
 
-## Getting started
+## Testing
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+We used the CountingItUpTesting.java program to output a large data set using our program. This testing program started at n = 1 and repeated 10 calculations for each k = 1 up to k = 15. We then averaged the 10 runs and printing this into the file. E.g., n = 52, k = 5, was tested 10 times and the time was measured then averaged over 10.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+We noticed that the program 
 
-## Add your files
+## Usage
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+After downloading the program, you can run it via main from the CountingItUpV4.java file, and input factorials in the terminal. E.g., 52 5 would be a valid input.
 
-```
+If you would like you could also use the file scanner to adjust the exampleIn.txt to read the factorials and print them as it scans through the file.
+
+## Installation
+
+Download CountingItUpV4.java from the repo and run through main. 
+
+If you want to run the program with file inputs then also download exampleIn.txt from the repo as well.
+
+----
+
+Option two is to clone the repository, and use the CountingItUpV4.java to run the program.
+
+```bash
 cd existing_repo
-git remote add origin https://altitude.otago.ac.nz/knobe957/etude6-countingitup.git
+git remote add origin https://altitude.otago.ac.nz/bohda634/lookwhostalking.git
 git branch -M main
 git push -uf origin main
 ```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://altitude.otago.ac.nz/knobe957/etude6-countingitup/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
