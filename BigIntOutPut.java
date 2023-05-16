@@ -1,13 +1,52 @@
-import java.io.FileWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class BigIntOutPut {
     
-    public static void main(String[] args) {
+    private static ArrayList<Long> denomList = new ArrayList<Long>();
+
+    public static void main(String[] args) throws FileNotFoundException {
         
-        runTests();
+        File f = new File("/Users/danielbohinc/Documents/2023/COSC326/etude6-countingitup/mock.txt");
+        Scanner sc = new Scanner(f);
+        // Scanner sc = new Scanner(System.in);
+
+        while (sc.hasNext()) {
+            denomList = new ArrayList<Long>();
+            String input = sc.nextLine();
+            input.strip();
+            String[] inputArr = input.split(" ");
+
+            long n   = Long.parseLong(inputArr[0]);
+            long k   = Long.parseLong(inputArr[1]);
+
+            long answer = CoutingItUpTesting.connectMethods(n, k);
+            long bigIntvalue = binom((int)n, (int)k).longValue();
+
+            System.out.println("n:  " + n + ",  k:  " + k);
+            System.out.println("Big int value:  " + bigIntvalue + ", Solve value: " + answer + "\n");
+                    
+            
+        }
+
+        // compare(x, 2L); 
+        // runTests();
     }
     
+
+    private static void compare(long n, long k) {
+
+        long answer = CoutingItUpTesting.connectMethods(n, k);
+        long bigIntvalue = binom((int)n, (int)k).longValue();
+
+        System.out.println("COUNTING:   " + answer);
+        System.out.println("BIG INT:    " + bigIntvalue);
+    }
+
+
     static BigInteger binom(int N, int K) {
         BigInteger ret = BigInteger.ONE;
         for (int k = 0; k < K; k++) {
@@ -22,8 +61,8 @@ public class BigIntOutPut {
         long answer = 0, bigIntvalue;
         int wrongAnwers = 0;
 
-        for(int i = 1; i < 101; i++) {
-            for (int denom = 1; denom < 16; denom++) {
+        for(int i = 1; i < 151; i++) {
+            for (int denom = 1; denom < 15; denom++) {
                 answer = CoutingItUpTesting.connectMethods((long)i, (long)denom);
                 bigIntvalue = binom(i, denom).longValue();
                 if(bigIntvalue != answer) {

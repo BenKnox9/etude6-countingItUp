@@ -43,7 +43,7 @@ public class CountingItUpV4 {
                     if(updated % ki == 0) {  
                         updated /= ki;
                         k.remove(j);  
-                        break;  
+                        continue;  
                     }
                     else {
                         continue;
@@ -58,6 +58,7 @@ public class CountingItUpV4 {
         }
 
         while(!k.isEmpty()) {
+            System.out.println("InN THE WHILE LOOP");
             updated = updated/k.get(0);
             k.remove(0);
         }
@@ -98,8 +99,8 @@ public class CountingItUpV4 {
     public static void main(String[] args) throws FileNotFoundException {
         
         File f = new File("/Users/danielbohinc/Documents/2023/COSC326/etude6-countingitup/mock.txt");
-        // Scanner sc = new Scanner(f);
         Scanner sc = new Scanner(f);
+        // Scanner sc = new Scanner(System.in);
 
         while (sc.hasNext()) {
             denomList = new ArrayList<Long>();
