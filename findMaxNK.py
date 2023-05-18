@@ -1,5 +1,10 @@
 import math
 
+"""
+Python program used to find max K for N whilst still under the MAX 64 bit integer
+"""
+
+
 MAX = 9_223_372_036_854_775_807
 n = MAX
 k = 1

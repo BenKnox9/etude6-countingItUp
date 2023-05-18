@@ -38,7 +38,7 @@ public class CoutingItUpTesting {
     public static long connectMethods(long n, long k){
         denomList = new ArrayList<Long>();
         long[] numerator = CountingItUpV4.getNumerator(n, k);
-        denomList = CountingItUpV4.fillDenomList(n, k);
+        ArrayList<Long> denomList = CountingItUpV4.fillDenomList(k);
 
         return CountingItUpV4.solve(numerator, denomList);
     }

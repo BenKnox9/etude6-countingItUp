@@ -6,12 +6,6 @@ import java.util.Scanner;
 public class CountingItUpV4 {
     
     private static ArrayList<Long> denomList = new ArrayList<Long>();
-
-    // CountingItUpV4(long n, long k) {
-        
-    //     long[] numerator = getNumerator(n, k);
-    //     denomList = fillDenomList(n, k); 
-    // }
     /**
      * link to nuum count thing:
      * https://en.wikipedia.org/wiki/Combination
@@ -32,6 +26,7 @@ public class CountingItUpV4 {
         long ni, ki;
         long updated = 1;
 
+        n = checkMods(n, k);
         for (int i = 0; i < n.length; i ++) { 
             ni = n[i];
             if (i > 0) {
@@ -43,6 +38,7 @@ public class CountingItUpV4 {
                     if(updated % ki == 0) {  
                         updated /= ki;
                         k.remove(j);  
+                        j = 0;
                         continue;  
                     }
                     else {
@@ -51,7 +47,8 @@ public class CountingItUpV4 {
                 }
                 if (ni % ki == 0) {  
                     updated *= (ni/ki);
-                    k.remove(j);  
+                    k.remove(j);
+                    j = 0; 
                     break;  
                 }
             }
@@ -63,6 +60,30 @@ public class CountingItUpV4 {
             k.remove(0);
         }
         return updated;
+    }
+
+    public static long[] checkMods(long[] n, ArrayList<Long> k) {
+        int count = 0;
+        int nIndex = 0;
+
+        if(k.size() == 1) {
+            return n;
+        }
+
+        for (int i = 0; i < k.size(); i++) {
+            for (int j = 0; j < n.length; j++) {
+                long ki = k.get(i);
+                if(n[j] % ki == 0) {
+                    nIndex = j;
+                    count++;
+                }
+            }
+            if(count == 1) {
+                n[nIndex] = n[nIndex] / k.get(i); 
+                k.remove(i);
+            }
+        }
+        return n;
     }
 
     /**
@@ -88,22 +109,24 @@ public class CountingItUpV4 {
      * @param k
      * @return
      */
-    public static ArrayList<Long> fillDenomList(long n, long k) {
+    public static ArrayList<Long> fillDenomList(long k) {
 
+        ArrayList<Long> denomList = new ArrayList<>();
         for(long i = k; i > 0; i--) {
             denomList.add(i);
         }
         return denomList;
     }
 
+
     public static void main(String[] args) throws FileNotFoundException {
         
-        File f = new File("/Users/danielbohinc/Documents/2023/COSC326/etude6-countingitup/mock.txt");
-        Scanner sc = new Scanner(f);
-        // Scanner sc = new Scanner(System.in);
+        // File f = new File("/Users/danielbohinc/Documents/2023/COSC326/etude6-countingitup/exampleIn.txt");
+        // Scanner sc = new Scanner(f);
+        Scanner sc = new Scanner(System.in);
 
         while (sc.hasNext()) {
-            denomList = new ArrayList<Long>();
+            // denomList = new ArrayList<Long>();
             String input = sc.nextLine();
             input.strip();
             String[] inputArr = input.split(" ");
@@ -112,9 +135,9 @@ public class CountingItUpV4 {
             long k = Long.parseLong(inputArr[1]);
 
             long[] numerator = getNumerator(n, k);
-            denomList = fillDenomList(n, k);
-
+            denomList = fillDenomList(k);
             System.out.println(solve(numerator, denomList));
+
         }
 
         sc.close();
