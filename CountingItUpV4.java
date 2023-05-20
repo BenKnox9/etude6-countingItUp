@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CountingItUpV4 {
@@ -26,7 +27,12 @@ public class CountingItUpV4 {
         long ni, ki;
         long updated = 1;
 
+        // System.out.println(Arrays.toString(n));
+        // n = findAllGDC(n, k);
+        // System.out.println(Arrays.toString(n));
+
         n = checkMods(n, k);
+        // System.out.println(k.toString());
         for (int i = 0; i < n.length; i ++) { 
             ni = n[i];
             if (i > 0) {
@@ -55,11 +61,19 @@ public class CountingItUpV4 {
         }
 
         while(!k.isEmpty()) {
-            System.out.println("InN THE WHILE LOOP");
+            System.out.println(k.toString());
             updated = updated/k.get(0);
             k.remove(0);
         }
         return updated;
+    }
+
+    public static long gcd(long a, long b) {
+        // if b=0, a is the GCD
+        if (b == 0)
+            return a;
+        else
+            return gcd(b, a % b);
     }
 
     public static long[] checkMods(long[] n, ArrayList<Long> k) {

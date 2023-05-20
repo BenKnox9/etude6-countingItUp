@@ -23,7 +23,7 @@ public class BigIntOutPut {
             long n   = Long.parseLong(inputArr[0]);
             long k   = Long.parseLong(inputArr[1]);
 
-            long answer = CoutingItUpTesting.connectMethods(n, k);
+            long answer = Test.binomialCoefficient(n, k);
             long bigIntvalue = binom((int)n, (int)k).longValue();
 
             System.out.println("n:  " + n + ",  k:  " + k);
