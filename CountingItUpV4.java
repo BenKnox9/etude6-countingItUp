@@ -61,19 +61,10 @@ public class CountingItUpV4 {
         }
 
         while(!k.isEmpty()) {
-            System.out.println(k.toString());
             updated = updated/k.get(0);
             k.remove(0);
         }
         return updated;
-    }
-
-    public static long gcd(long a, long b) {
-        // if b=0, a is the GCD
-        if (b == 0)
-            return a;
-        else
-            return gcd(b, a % b);
     }
 
     public static long[] checkMods(long[] n, ArrayList<Long> k) {

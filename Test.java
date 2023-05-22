@@ -41,6 +41,9 @@ public class Test {
             k = n - k; 
         }
 
+        //k = 1 return n
+        //n = k return 1
+
         long result = 1;
 
         for (long i = 0, m = n; i < k; i++, m--) {
@@ -61,7 +64,6 @@ public class Test {
             //multiply result by next term
             result = result * nextTerm; 
         }
-
         return result;
     }
 
