@@ -22,7 +22,6 @@ public class CountingItUpV5 {
     }
 
     public static long binomial(long n, long k) {
-        // long c = 1, i;
         long result = 1, i;
       
         if (k > n-k) // take advantage of symmetry
@@ -32,7 +31,7 @@ public class CountingItUpV5 {
             if (result/i > Long.MAX_VALUE/n) // return 0 on potential overflow
                 return 0;
 
-            result = result / i * n + result % i * n / i; // split c * n / i into (c / i * i + c % i) * n / i
+            result = result / i * n + result % i * n / i; // split result * n / i into (result / i * i + c % i) * n / i
         }
         return result;
       }
