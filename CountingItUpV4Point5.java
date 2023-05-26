@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Test {
+public class CountingItUpV4Point5 {
 
     public static void main(String[] args) {
 
@@ -46,26 +46,23 @@ public class Test {
 
         long result = 1;
 
-        for (long i = 1; i <= k; i++) {
-            // //get gcd for next number in denom
-            // long d = gcd(result, i + 1);
+        for (long i = 1, m = n; i <= k; i++, m--) {
+            //get gcd for next number in denom
+            long d = gcd(result, i + 1);
             
-            // //divide result by gdc
-            // result = result / d;
+            //divide result by gdc
+            result = result / d;
 
-            // long nextTerm = m;
+            long nextTerm = m;
 
-            // //get gcd for next value in numerator --> same as above just with numerator
-            // d = gcd(nextTerm, i + 1);
+            //get gcd for next value in numerator --> same as above just with numerator
+            d = gcd(nextTerm, i + 1);
 
             // //divide next numerator by gcd
-            // nextTerm = nextTerm / d;
+            nextTerm = nextTerm / d;
             
-            // //multiply result by next term
-            // result = result * nextTerm; 
-
-            long gcdValue = gcd(result, i);
-            result = (result / gcdValue) * ((n - i + 1) / (i / gcdValue));
+            //multiply result by next term
+            result = result * nextTerm; 
         }
         return result;
     }

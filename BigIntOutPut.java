@@ -24,7 +24,7 @@ public class BigIntOutPut {
             long k   = Long.parseLong(inputArr[1]);
 
             // long answer = CountingItUpV5.binomial(n, k);
-            long answer = Test.binomialCoefficient(n, k);
+            long answer = CountingItUpV4Point5.binomialCoefficient(n, k);
 
             long bigIntvalue = binom((int)n, (int)k).longValue();
 
