@@ -31,12 +31,6 @@ public class CountingItUpV5 {
         k = Math.min(k, n - k);
 
         for (long i = 1; i <= k; i++) {
-            /**
-             * might not need line below because we wont be testing values which will
-             * overflow I'd hope
-             */
-            // if (result / i > Long.MAX_VALUE / n)
-            // return 0;
 
             divResult = result / i;
             divRemainder = result % i;

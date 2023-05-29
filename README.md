@@ -6,18 +6,20 @@ Daniel Bohinc, Ben Knox
 
 
 # Description & Overview
-CountingItUpV4 is a java program which uses 64 bit integers to perform combinations. 
+
+CountingItUpV5 is a java program which uses 64 bit integers to perform combinations. 
 The max value for a 64 bit integer being, 9,223,372,036,854,775,807. As you can see by the names of the files,
-CountingItUpV4 was our fourth attempt which successfully calculated combinations where the final result would go as 
+CountingItUpV5 was our fifth attempt which successfully calculated combinations where the final result would go as 
 high as 9,223,372,036,854,775,807. We had multiple other attempts which ran into problems regarding the bit limit  
 as well as rounding errors. One attempt could calculate combinations in 5 lines of code however using the data type double meant that
 for the extremely large numbers the rounding errors would have caught up and our result was off. 
 
 CountingItUpV4 looked at the greatest common denominator between the current result and the list of numbers of K to 0. The program would divide the result by the gcd and then multiply by the next number in the list n to n - k.
-This worked well because in previous implementations we found that our end result would be a fraction and the numerator would exceed the 64 bits that a long holds. 
+This worked well because in previous implementations we found that our end result would be a fraction and the numerator would exceed the 64 bits that a long holds. How ever this implementation worked well for larger numbers but not so well for lower numbers, which caused this program to not be robust enough to pass AutoJudge.
+
+We finally looked at another solution which NEED MORE STUFF HERE
+
 However if we were able to perform the division for this fraction we could have achieved the correct result. After this we focused on completing any potential divisions as early as possible so that the number would not exceed the bit count too early on. 
-
-
 
 ## Testing
 
