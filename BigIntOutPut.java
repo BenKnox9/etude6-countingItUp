@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BigIntOutPut {
-    
+
     private static ArrayList<Long> denomList = new ArrayList<Long>();
 
     public static void main(String[] args) throws FileNotFoundException {
-        
-        File f = new File("/Users/danielbohinc/Documents/2023/COSC326/etude6-countingitup/mock.txt");
+
+        File f = new File("mock.txt");
         Scanner sc = new Scanner(f);
         // Scanner sc = new Scanner(System.in);
 
@@ -20,40 +20,37 @@ public class BigIntOutPut {
             input.strip();
             String[] inputArr = input.split(" ");
 
-            long n   = Long.parseLong(inputArr[0]);
-            long k   = Long.parseLong(inputArr[1]);
+            long n = Long.parseLong(inputArr[0]);
+            long k = Long.parseLong(inputArr[1]);
 
-            // long answer = CountingItUpV5.binomial(n, k);
-            long answer = CountingItUpV4Point5.binomialCoefficient(n, k);
+            long answer = CountingItUpV5.binomial(n, k);
+            // long answer = CountingItUpV4Point5.binomialCoefficient(n, k);
 
-            long bigIntvalue = binom((int)n, (int)k).longValue();
+            long bigIntvalue = binom((int) n, (int) k).longValue();
 
             System.out.println("n:  " + n + ",  k:  " + k);
             System.out.println("Big int value:  " + bigIntvalue + ", Solve value: " + answer + "\n");
-                    
-            
+
         }
 
-        // compare(x, 2L); 
+        // compare(x, 2L);
         // runTests();
     }
-    
 
     private static void compare(long n, long k) {
 
         long answer = CoutingItUpTesting.connectMethods(n, k);
-        long bigIntvalue = binom((int)n, (int)k).longValue();
+        long bigIntvalue = binom((int) n, (int) k).longValue();
 
         System.out.println("COUNTING:   " + answer);
         System.out.println("BIG INT:    " + bigIntvalue);
     }
 
-
     static BigInteger binom(int N, int K) {
         BigInteger ret = BigInteger.ONE;
         for (int k = 0; k < K; k++) {
-            ret = ret.multiply(BigInteger.valueOf(N-k))
-                     .divide(BigInteger.valueOf(k+1));
+            ret = ret.multiply(BigInteger.valueOf(N - k))
+                    .divide(BigInteger.valueOf(k + 1));
         }
         return ret;
     }
@@ -63,11 +60,11 @@ public class BigIntOutPut {
         long answer = 0, bigIntvalue;
         int wrongAnwers = 0;
 
-        for(int i = 1; i < 151; i++) {
+        for (int i = 1; i < 151; i++) {
             for (int denom = 1; denom < 15; denom++) {
-                answer = CoutingItUpTesting.connectMethods((long)i, (long)denom);
+                answer = CoutingItUpTesting.connectMethods((long) i, (long) denom);
                 bigIntvalue = binom(i, denom).longValue();
-                if(bigIntvalue != answer) {
+                if (bigIntvalue != answer) {
                     System.out.println("i:  " + i + ",  DENOM:  " + denom);
                     System.out.println("Big int value:  " + bigIntvalue + ", Solve value: " + answer + "\n");
                     wrongAnwers++;

@@ -6,6 +6,8 @@ Daniel Bohinc, Ben Knox
 
 ## Description & Overview
 
+We have many versions of our counting it up program however the finished program we are submitting is CountingItUpV5.java<br>
+
 CountingItUpV5 is a java program which uses 64 bit integers to perform combinations. 
 The max value for a 64 bit integer being, 9,223,372,036,854,775,807. As you can see by the names of the files,
 CountingItUpV5 was our fifth attempt which successfully calculated combinations where the final result would go as 
@@ -16,12 +18,14 @@ for the extremely large numbers the rounding errors would have caught up and our
 CountingItUpV4 looked at the greatest common denominator between the current result and the list of numbers of K to 0. The program would divide the result by the gcd and then multiply by the next number in the list n to n - k.
 This worked well because in previous implementations we found that our end result would be a fraction and the numerator would exceed the 64 bits that a long holds. How ever this implementation worked well for larger numbers but not so well for lower numbers, which caused this program to not be robust enough to pass AutoJudge. However if we were able to perform the division for this fraction we could have achieved the correct result. After this we focused on completing any potential divisions as early as possible so that the number would not exceed the bit count too early on. 
 
-We finally looked at another solution which was derived from https://en.wikipedia.org/wiki/Binomial_coefficient. This solution was sufficient enough for it to pass AutoJudge.
+After 4 failed attempts at calculating the n choose k we finally found wikipedia's binonial coefficients page. This page helped us with the necessary steps to calculating the binomial coefficients while avoiding overflow in the equation, we implemented this in CountingItUpV5.
 
 
 ## Testing
 
-We first started with creating a python script called findMaxNK.py, which printed values for N and K which stayed within the limits of the 64 bit max integer. In hindsight this program was not sufficient enough as it had skipped quite a lot of test cases. The output file was mock.txt, and it only contained about 11 test cases. The additional cases were from requesting clarification on AutoJudge. Though I assumed that only so many values could be within the range of the 64 bit integer cap, and many of the output cases were close to the max number, we though it would be okay. We found that adjusting for the new test cases, we forgot about the lower end cases, which lead us to making a whole new version, going from 4.5 to 5.
+We first started with creating a python script called findMaxNK.py, which printed values for N and K which stayed within the limits of the 64 bit max integer. In hindsight this program was not sufficient enough as it had skipped quite a lot of test cases. The output file was mock.txt, and it only contained about 11 test cases. The additional cases were from requesting clarification on AutoJudge. Though we assumed that only so many values could be within the range of the 64 bit integer cap, and many of the output cases were close to the max number, we though it would be okay. We found that adjusting for the new test cases, we forgot about the lower end cases, which lead us to making a whole new version, going from 4.5 to 5.
+
+We tested that our implementation in CountingItUpV5 actually worked, both through auto judge and through our BigIntOutPut.java file. This file would calculate n choose k using big integers along side our implementation. we would feed both programs the same input data and then compare the results from our implementation and the big int implementation. This helped significantly because it allowed us to test any new version or new change at any time. 
 
 ## Usage
 
@@ -29,7 +33,7 @@ After downloading the program, you can run it via main from the CountingItUpV5.j
 
 ```Java
 javac CountingItUpV5.java
-java CountingItUp.java
+java CountingItUpV5
 52 5
 ```
 
@@ -43,7 +47,7 @@ If you want to run the program with file inputs then also download exampleIn.txt
 
 ----
 
-Option two is to clone the repository, and use the CountingItUpV4.java to run the program.
+Option two is to clone the repository, and use the CountingItUpV5.java to run the program.
 
 ```bash
 cd existing_repo
