@@ -1,11 +1,10 @@
-# Authors
+# Counting It Up
+
+## Authors
 
 Daniel Bohinc, Ben Knox
 
-# Counting It Up
-
-
-# Description & Overview
+## Description & Overview
 
 CountingItUpV5 is a java program which uses 64 bit integers to perform combinations. 
 The max value for a 64 bit integer being, 9,223,372,036,854,775,807. As you can see by the names of the files,
