@@ -26,7 +26,7 @@ We tested that our implementation in CountingItUpV5 actually worked, both throug
 
 After downloading the program, you can run it via main from the CountingItUpV5.java file, and input factorials in the terminal.
 
-```Java
+```
 javac CountingItUpV5.java
 java CountingItUpV5
 52 5
@@ -34,7 +34,7 @@ java CountingItUpV5
 
 If you would like you could also use the file scanner, to do this uncomment lines 9 and 10 in CountingItUpV5.java and comment out line 11. You can then use any file as input as long as the right path is entered. After this do the following to run the program:
 
-```Java
+```
 javac CountingItUpV5.java
 java CountingItUpV5
 ```
