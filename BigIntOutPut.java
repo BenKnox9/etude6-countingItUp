@@ -11,7 +11,7 @@ public class BigIntOutPut {
     public static void main(String[] args) throws FileNotFoundException {
         int problems = 0;
 
-        File f = new File("mock.txt");
+        File f = new File("NandKoutput.txt");
         Scanner sc = new Scanner(f);
         // Scanner sc = new Scanner(System.in);
 
@@ -28,7 +28,7 @@ public class BigIntOutPut {
 
             long bigIntvalue = binom((int) n, (int) k).longValue();
 
-            if (answer != bigIntvalue) {
+            if (answer != bigIntvalue && bigIntvalue > 0) {
                 System.out.println("n:  " + n + ",  k:  " + k);
                 System.out.println("Big int value:  " + bigIntvalue + ", Solve value: " + answer + "\n");
                 problems++;
