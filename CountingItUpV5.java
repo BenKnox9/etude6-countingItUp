@@ -1,9 +1,13 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class CountingItUpV5 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
+        // File f = new File("exampleIn.txt");
+        // Scanner sc = new Scanner(f);
         Scanner sc = new Scanner(System.in);
 
         while (sc.hasNext()) {
@@ -28,6 +32,7 @@ public class CountingItUpV5 {
         long multiply1;
         long multiply2;
 
+        // e.g. 10 choose 7 will be the same as 10 choose 3
         k = Math.min(k, n - k);
 
         for (long i = 1; i <= k; i++) {

@@ -9,6 +9,7 @@ public class BigIntOutPut {
     private static ArrayList<Long> denomList = new ArrayList<Long>();
 
     public static void main(String[] args) throws FileNotFoundException {
+        int problems = 0;
 
         File f = new File("mock.txt");
         Scanner sc = new Scanner(f);
@@ -24,17 +25,18 @@ public class BigIntOutPut {
             long k = Long.parseLong(inputArr[1]);
 
             long answer = CountingItUpV5.binomial(n, k);
-            // long answer = CountingItUpV4Point5.binomialCoefficient(n, k);
 
             long bigIntvalue = binom((int) n, (int) k).longValue();
 
-            System.out.println("n:  " + n + ",  k:  " + k);
-            System.out.println("Big int value:  " + bigIntvalue + ", Solve value: " + answer + "\n");
+            if (answer != bigIntvalue) {
+                System.out.println("n:  " + n + ",  k:  " + k);
+                System.out.println("Big int value:  " + bigIntvalue + ", Solve value: " + answer + "\n");
+                problems++;
+            }
 
         }
+        System.out.println("Number of problems: " + problems);
 
-        // compare(x, 2L);
-        // runTests();
     }
 
     private static void compare(long n, long k) {
